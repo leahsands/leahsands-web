@@ -1,1 +1,310 @@
 // Your custom SCSS should be written here...
+.bg-slideshow { 
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    z-index: -9999; 
+}
+.bg-slideshow li span { 
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    color: transparent;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: none;
+    opacity: 0;
+    z-index: 0;
+	-webkit-backface-visibility: hidden;
+    -webkit-animation: imageAnimation 21s linear infinite 0s;
+    -moz-animation: imageAnimation 21s linear infinite 0s;
+    -o-animation: imageAnimation 21s linear infinite 0s;
+    -ms-animation: imageAnimation 21s linear infinite 0s;
+    animation: imageAnimation 21s linear infinite 0s; 
+}
+.bg-slideshow li:nth-child(1) span { 
+    background-image: url(../img/bg/Flowers.png) 
+}
+.bg-slideshow li:nth-child(2) span { 
+    background-image: url(../img/bg/Graffiti.png);
+    -webkit-animation-delay: 7s;
+    -moz-animation-delay: 7s;
+    -o-animation-delay: 7s;
+    -ms-animation-delay: 7s;
+    animation-delay: 7s; 
+}
+.bg-slideshow li:nth-child(3) span { 
+    background-image: url(../img/bg/Mountain.png);
+    -webkit-animation-delay: 14s;
+    -moz-animation-delay: 14s;
+    -o-animation-delay: 14s;
+    -ms-animation-delay: 14s;
+    animation-delay: 14s; 
+}
+/* Animation for the slideshow images */
+@-webkit-keyframes imageAnimation { 
+    0% { opacity: 0;
+    -webkit-animation-timing-function: ease-in; }
+    8% { opacity: 1;
+         -webkit-animation-timing-function: ease-out; }
+    33% { opacity: 1 }
+    54% { opacity: 0 }
+    100% { opacity: 0 }
+}
+@-moz-keyframes imageAnimation { 
+    0% { opacity: 0;
+    -moz-animation-timing-function: ease-in; }
+    8% { opacity: 1;
+         -moz-animation-timing-function: ease-out; }
+    33% { opacity: 1 }
+    54% { opacity: 0 }
+    100% { opacity: 0 }
+}
+@-o-keyframes imageAnimation { 
+    0% { opacity: 0;
+    -o-animation-timing-function: ease-in; }
+    8% { opacity: 1;
+         -o-animation-timing-function: ease-out; }
+    33% { opacity: 1 }
+    54% { opacity: 0 }
+    100% { opacity: 0 }
+}
+@-ms-keyframes imageAnimation { 
+    0% { opacity: 0;
+    -ms-animation-timing-function: ease-in; }
+    8% { opacity: 1;
+         -ms-animation-timing-function: ease-out; }
+    33% { opacity: 1 }
+    54% { opacity: 0 }
+    100% { opacity: 0 }
+}
+@keyframes imageAnimation { 
+    0% { opacity: 0;
+    animation-timing-function: ease-in; }
+    8% { opacity: 1;
+         animation-timing-function: ease-out; }
+    33% { opacity: 1 }
+    54% { opacity: 0 }
+    100% { opacity: 0 }
+}
+
+/* Show at least something when animations not supported */
+.no-cssanimations .bg-slideshow li span{
+	opacity: 1;
+}
+
+//Main Landing Image
+.main-landing-image {
+    img {
+        width: 50%;
+        height: auto;
+        position: absolute;
+        margin: auto;
+        left: 0; 
+        right: 0;
+        top: 0;
+        bottom: 0; 
+        @media only screen and (max-width : $tablet-device-width) {
+            width: 75%;
+        }
+    }
+}
+
+// Navbar
+.nav-container { 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    padding: 0;
+    background: #fff;
+    .site-logo-container {
+        float: left;
+        width: 100px;
+        height: 100px;
+        background: $grey-lgt;
+    }
+    .site-logo {
+        float: none;
+        width: 100px;
+        height: auto;
+        margin: 10px auto;
+    }
+    .navigation-menu {
+        position: absolute;
+        left: 100px;
+        padding: 14px 0 14px 50px;
+        float: right;
+        .menu-item a {
+            @include font-size($xxlarge);
+            color: $primary-color;
+            text-transform: uppercase;
+            padding: 0 $gutter-in-px;
+            &:hover {
+                color: $primary-hover-color;
+                text-decoration: none;
+            }
+        }
+    }
+    .social {
+        float: right;
+        li { 
+            padding: 0;
+        }
+        i {
+            @include font-size($xlarge);
+        }
+    }
+    .show-menu {
+        opacity: 0;
+        height: 0;
+        width: 0;
+    }
+}
+.nav-container-fixed {
+    z-index: 9999; 
+    position: fixed; 
+    left: 0; 
+    top: 0; 
+    width: 130px;
+    height: 100px;
+    padding: 0;
+    .nav > .row {
+        width: auto;
+        max-width: auto;
+        min-width: auto;
+        padding: 0;
+    }
+    .site-logo-container {
+        background: none;
+    }
+    .site-logo {
+        float: left;
+        width: 100px;
+        height: auto;
+    }
+    .navigation-menu {
+        width: 0;
+        display:none;
+        #menu-main { float: none; }
+    }
+    .navigation-menu.active {
+        width: 100%;
+        height: 100px;
+        float: right;
+        position: fixed;
+        left: 130px;
+        display: block;
+        top: 0;
+        background: #f9f9f9;
+        padding: 24px;
+    }
+    .show-menu {
+        opacity: 1;
+        float: left;
+        width: inherit;
+        height: 100px;
+        background: #f9f9f9;
+        padding: 40px 0;
+    }
+} /* this make our menu fixed top */
+    
+.nav {
+    height: 42px;
+}
+    .nav ul { 
+        list-style: none; 
+        margin-top: 12px;
+    }
+    .nav ul li {
+        float: left; 
+        margin-top: 6px; 
+        padding: 6px; 
+    }
+    .nav ul li:first-child { 
+        padding-left: 0;
+    }
+    .nav ul li a {
+
+    }
+    .nav ul li a:hover {
+        text-decoration: underline;
+    }
+
+
+/////// MAIN STYLES ////////
+body {
+    background: $off-white;
+}
+
+* {
+    -webkit-transition: all ease-in-out 0.3s; /* For Safari 3.1 to 6.0 */
+    transition: all ease-in-out 0.3s;
+    font-kerning: auto;
+}
+
+.main-body {
+    top: (124px + $gutter-in-px);
+    position: relative;
+}
+
+
+//Single Portfolio styles
+#portfolio {
+    position: relative;
+    overflow: auto;
+    margin: 60px auto 50px;
+    clear: both;
+}
+
+#portfolio .info {
+    position: fixed;
+    margin-top: 88px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: $gutter-in-px;
+    width: 320px;
+}
+
+#portfolio .title {
+    position: relative;
+    float: left;
+}
+
+#portfolio .dscrp {
+    position: relative;
+    float: left;
+    padding: 0 $gutter-in-px/2;
+    background: $grey-lgt;
+    color: $grey-drk !important;
+}
+
+#portfolio .category {
+    color: $grey;
+    a {
+        font-weight: $font-weight-bold;
+        margin: 0 $gutter-in-px/2;
+        color: $grey;
+        &:hover { color: $grey-lgt; }
+    }
+}
+
+#portfolio .body {
+    padding-left: 320px;
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+//caption
+.wp-caption-text {
+    color: $grey-drk;
+    font-style: italic;
+    @include font-size($norm);
+}

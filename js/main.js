@@ -21,3 +21,8 @@ Gumby.ready(function() {
 }).touch(function() {
 	Gumby.log("This is a touch enabled device...");
 });
+
+//Small menu toggle
+$(".options").click(function(){
+  $("#smallnav").toggle();
+});

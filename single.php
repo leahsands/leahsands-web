@@ -10,12 +10,6 @@
 			<?php endwhile; ?>
 		</div>
 	</div>	
-	
-	<div class="four columns">
-		<div id="sidebar">
-			<?php get_sidebar(); ?>
-		</div>
-	</div>
 </div>
 
 
